@@ -1,0 +1,8 @@
+.joke-item {
+    
+    .jokes-list-joke, .jokes-list-edit-joke {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

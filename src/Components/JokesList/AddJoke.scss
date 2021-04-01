@@ -1,0 +1,18 @@
+.add-joke {
+    .add-joke-btn {
+        width: 100%;
+    }
+
+    .new-joke-form {
+        width: 100%;
+        margin-top: 5px;
+
+        .new-joke-joke {
+            width: 90%;
+        }
+
+        .new-joke-submit {
+            width: 10%;
+        }
+    }
+}
