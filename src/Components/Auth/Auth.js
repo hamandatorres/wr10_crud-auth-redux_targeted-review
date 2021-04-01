@@ -1,5 +1,8 @@
 import { Component } from 'react';
+import axios from 'axios';
 import './Auth.scss';
+import { connect } from 'react-redux';
+import { loginUser } from '../../redux/reducers/userReducer'
 
 class Auth extends Component {
     constructor() {
@@ -23,6 +26,17 @@ class Auth extends Component {
 
     handleSubmit = () => {
         // what do?
+        const { mode, email, password } = this.state;
+
+        const path = mode === 'register' ? 'register' : 'login';
+
+        axios.post(`/auth/${path}`, { email, password })
+        .then(res => {
+            this.props.loginUser(res.data);
+            this.props.history.push('/jokes');
+        })
+        .catch(err => console.log(err));
+
     }
 
     render() {
@@ -39,7 +53,7 @@ class Auth extends Component {
                 <div>
                     <input placeholder='email' name='email' onChange={this.handleInput} />
                     <input placeholder='password' name='password' onChange={this.handleInput} />
-                    <button>Submit</button>
+                    <button onClick={this.handleSubmit}>Submit</button>
                 </div>
                 
             </section>
@@ -47,4 +61,4 @@ class Auth extends Component {
     }
 }
 
-export default Auth;
+export default connect(null, { loginUser })(Auth);
