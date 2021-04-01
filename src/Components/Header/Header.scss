@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter=swap');
+
+.site-header {
+    height: 100px;
+    font-family: 'Architects Daughter', cursive;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .site-title {
+        font-size: 25px;
+    }
+
+    .logged-out {
+        display: none;
+    }
+}
